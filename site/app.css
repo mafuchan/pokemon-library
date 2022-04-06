@@ -16,12 +16,20 @@ body {
 h1 {
     font-size: 60px;
     text-shadow: -5px 5px black;
+    color: white;
 }
 
 h2 {
     text-shadow: -3px 1px black;
+    color: rgb(200, 21, 21)
 }
 
 div {
     display: inline-block;
+}
+
+ul{
+    list-style: none;
+    color: black;
+    text-shadow: -3px 1px white;
 }
