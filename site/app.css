@@ -5,3 +5,23 @@
 .hidden {
     display: none;
 }
+
+body {
+    background-image: linear-gradient(to right, rgb(251, 205, 41), white);
+    text-align: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+}
+
+h1 {
+    font-size: 60px;
+    text-shadow: -5px 5px black;
+}
+
+h2 {
+    text-shadow: -3px 1px black;
+}
+
+div {
+    display: inline-block;
+}

@@ -1,12 +1,20 @@
-const url = "https://pokeapi.co/api/v2/pokemon?limit=50"
-const app = document.querySelector("#app")
+const url = "https://pokeapi.co/api/v2/pokemon?limit=54"
+//Had to get my buddy Psyduck in on the action here
 const main = document.querySelector("main")
 const spinner = document.querySelector(".spinner")
 
-function addPokemonImage(url) {
-    const img = document.createElement("img")
-    img.src = url
-    app.append(img)
+document.querySelector("h1").textContent = "Pokedex!"
+
+function addPokemonImage(pokemon) {
+    const div = document.createElement("div")
+    const titleName = `${pokemon.name[0].toUpperCase()}${pokemon.name.slice(1)}`
+    div.innerHTML = `
+    <figure>
+        <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}" />
+        <figcaption><a href="pokemon.html?pokemon=${pokemon.name}">${titleName}</a></figcaption>
+    </figure>
+    `
+    main.append(div)
 }
 
 fetch(url)
@@ -17,10 +25,8 @@ fetch(url)
         const fetches = urls.map(url => fetch(url).then(response => response.json()))
         return Promise.all(fetches)
     }).then(responses => {
-        spinner.classList.add("hidden")
         responses.forEach(response => {
-            addPokemonImage(response.sprites.front_default)
+            spinner.classList.add("hidden")
+            addPokemonImage(response)
         })
     })
-
-document.querySelector("h1").textContent = "Pokedex!"
